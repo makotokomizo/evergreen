@@ -2,12 +2,21 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 // import { get1Property } from '../actions/property';
 import PropTypes from 'prop-types';
-import { Button, Pane, Heading, Text, Paragraph, Strong, Box, Icon, InfoSignIcon, Popover, Position, Menu, Card, toaster, Dialog } from 'evergreen-ui'
+import { Button, Pane, Heading, Text, Paragraph, Strong, Box, Icon, InfoSignIcon, Popover, Position, Menu, Card, toaster, Dialog, Autocomplete, TextInput, TextInputField } from 'evergreen-ui'
 // import message from '../message.svg';
 // import message from '../sharero.png';
 
 
 export class SubmitHost extends Component {
+    state = {
+        first_name: '',
+        last_name: '',
+        gender: '',
+        email: '',
+        message: '',
+      };
+
+
     static propTypes = {
         // property_detail: PropTypes.array.isRequired
     }
@@ -26,7 +35,32 @@ export class SubmitHost extends Component {
 
     }
 
+    // onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+        console.log("change", e.target.name)
+        console.log("change", e.target.value)
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        const { first_name, last_name, gender, email, message } = this.state;
+        const lead = { first_name, last_name, gender, email, message };
+        console.log("submit host lead", lead)
+        this.props.addLead(lead);
+        this.setState({
+            first_name: '',
+            last_name: '',
+            gender: '',
+            email: '',
+            message: '',
+        });
+    };
+    
+
     render() {
+        const { first_name, last_name, gender, email, message } = this.state;
+
         // const test = this.props.match.params.detailID
 
         // const sharableItems_data  =this.props.property_detail.sharableItems
@@ -94,8 +128,196 @@ export class SubmitHost extends Component {
 
         return (
             
-            <div className="">
+            <div className="container">
                 <Paragraph>submithost</Paragraph>
+                <div className="row">
+                    <div className="col-md-4">
+                        <Paragraph>左</Paragraph>
+                    </div>
+                    <div className="col-md-8" style={{ textAlign: "initial" }}>
+                        <Paragraph>右</Paragraph>
+                        <Pane border="muted" width="100%" height="100%" marginRight={16} float="left">
+
+
+                        <form onSubmit={this.onSubmit}>
+                        <Pane>
+                        <TextInputField
+                        // id="ids-are-optional"
+                        label="A required text input field"
+                        hint="This is a hint."
+                        // required
+                        description="This is a description."
+                        placeholder="Placeholder text"
+                        width="30%"
+
+                        />
+                        </Pane>
+
+
+                        <Pane clearfix>
+                        <Pane border="default" width="40%" height={80} marginRight={16} float="left">
+                            <TextInputField
+                            // id="ids-are-optional"
+                            label="姓"
+                            required
+                            placeholder="田中"
+                            width="100%"
+                            name="last_name"
+                            onChange={this.onChange}
+                            // value={last_name}
+                            />
+                        </Pane>
+                        <Pane border="muted" width="40%" height={80} marginRight={16} float="left">
+                            <TextInputField
+                            id="ids-are-optional"
+                            label="名"
+                            required
+                            placeholder="太郎"
+                            width="100%"
+                            name="first_name"
+                            onChange={this.onChange}
+                            // value={first_name}
+                            />
+                        </Pane>
+                        </Pane>
+
+                        <Pane clearfix>
+                        <Pane border="default" width="40%" height={80} marginRight={16} float="left">
+                        <Autocomplete
+                        title="性別"
+                        onChange={changedItem => console.log(changedItem)}
+
+                        // name="gender"
+                        // onChange={this.onChange}
+
+                        items={['男性', '女性', '答えたくない']}
+                        >
+                        {(props) => {
+                            const { getInputProps, getRef, inputValue, openMenu } = props
+                            return (
+                            <TextInputField
+                                label="性別"
+                                placeholder="選択して下さい"
+                                required
+                                name="gender"
+                                onChange={this.onChange}
+                                value={inputValue}
+                                innerRef={getRef}
+                                {...getInputProps({
+                                onFocus: () => {
+                                    openMenu()
+                                }
+                                })}
+                            />
+                            )
+                        }}
+                        </Autocomplete>
+                        </Pane>
+                        </Pane>
+
+                        <Pane clearfix>
+                        <Pane border="muted" width="60%" height={80} marginRight={16} float="left">
+                            <Pane border="muted" width="30%" height={80} marginRight={16} float="left">
+                            <TextInputField
+                            id="ids-are-optional"
+                            label="年齢"
+                            required
+                            placeholder="34"
+                            width="100%"
+                            // name={first_name}
+                            />
+                            </Pane>
+                            <Pane border="muted" width="40%" height={80} marginRight={16} float="left" display="flex"
+                            alignItems="center"
+                            // justifyContent="center"
+                            >
+                            {/* <Paragraph>huhu</Paragraph> */}
+                            <Text>歳</Text>
+
+                            </Pane>
+                        </Pane>
+                        </Pane>
+
+                        <Pane clearfix>
+                        <Pane border="default" width="40%" height={80} marginRight={16} float="left">
+                        <Autocomplete
+                        title="出身地"
+                        onChange={changedItem => console.log(changedItem)}
+                        items={['北海道', '青森県', '岩手県']}
+                        >
+                        {(props) => {
+                            const { getInputProps, getRef, inputValue, openMenu } = props
+                            return (
+                            <TextInputField
+                                label="出身地"
+                                placeholder="選択して下さい"
+                                value={inputValue}
+                                innerRef={getRef}
+                                {...getInputProps({
+                                onFocus: () => {
+                                    openMenu()
+                                }
+                                })}
+                            />
+                            )
+                        }}
+                        </Autocomplete>
+                        </Pane>
+                        </Pane>
+
+                        <Pane clearfix>
+                        <Pane border="default" width="100%" height={160} marginRight={16} float="left">
+                        <TextInputField
+                        id="ids-are-optional"
+                        // color="#D4EEE2"
+                        label="自己紹介を書いてみましょう！"
+                        hint="This is a hint."
+                        required
+                        description="This is a description."
+                        placeholder="Placeholder text"
+                        width="70%"
+                        />
+                        </Pane>
+                        </Pane>
+
+                        <Pane clearfix>
+                        <Pane border="default" width="100%" height={80} marginRight={16} float="left">
+
+                        <Autocomplete
+                        title="Fruits"
+                        onChange={changedItem => console.log(changedItem)}
+                        items={['Apple', 'Apricot', 'Banana', 'Cherry', 'Cucumber']}
+                        >
+                        {(props) => {
+                            const { getInputProps, getRef, inputValue, openMenu } = props
+                            return (
+                            <TextInput
+                                placeholder="Open on focus"
+                                value={inputValue}
+                                innerRef={getRef}
+                                {...getInputProps({
+                                onFocus: () => {
+                                    openMenu()
+                                }
+                                })}
+                            />
+                            )
+                        }}
+                        </Autocomplete>
+                        </Pane>
+                        </Pane>
+
+                        <div className="form-group">
+                            <button type="submit" className="btn btn-primary">
+                            Submit
+                            </button>
+                        </div>
+                        </form>
+                        
+                        </Pane>
+
+                    </div>
+                </div>
             </div>
         )
     }

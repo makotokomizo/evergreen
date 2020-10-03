@@ -9,28 +9,39 @@ import message from '../message.svg';
 
 export class Detail extends Component {
     static propTypes = {
-        property_detail: PropTypes.array.isRequired
+        property_detail: PropTypes.object.isRequired,
+        sharable_items: PropTypes.object.isRequired,
     }
 
-    constructor(props) {
-        super(props);
-        // console.log(props)
-        // console.log(props.match.params.detailID)
-        this.props.get1Property(props.match.params.detailID);
+    // constructor(props) {
+    //     super(props);
 
-      }
+    //     // console.log(props)
+    //     // console.log(props.match.params.detailID)
+    //     console.log("jjjjjjjjjjjjjjj")
+
+    //   }
+    
+
+    // componentDidMount() {
+
+    //     // console.log(this.props.match.params.detailID)
+    //     console.log("detail didmount")
+
+    // }
 
     componentDidMount() {
-        // console.log(this.props.match.params.detailID)
-        // console.log("detail didmount")
+        this.props.get1Property(this.props.match.params.detailID);
 
+        // this.props.get1Property(1);
     }
 
     render() {
         const test = this.props.match.params.detailID
 
-        const sharableItems_data  =this.props.property_detail.sharableItems
-        const sharableItems_data_json  =JSON.stringify(this.props.property_detail.sharableItems)
+        // const sharableItems_data  =this.props.property_detail
+        const sharableItems_data  =this.props.sharable_items
+        // const sharableItems_data_json  =JSON.stringify(this.props.property_detail.sharableItems)
         // console.log(this.props.property)
         // console.log(typeof this.props.property_detail.sharableItems)
         // console.dir(this.props.property_detail.sharableItems);
@@ -49,17 +60,74 @@ export class Detail extends Component {
 
         // --------------------------------------------------↓this part I mentioned
         
-        // const amenities = sharableItems_data.map((c) => {
-        //     console.log(c)
-        // });
+        let amenities = sharableItems_data.map((c) => {
+            console.log("map", c)
+            console.log("map", c.name)
+
+
+            return (
+                // <Contact
+                //   key={c.id}
+                //   name={firstName}
+                //   picURL={Image}
+                //   chatURL={`/build/${c.id}`}
+                // />
+
+                // <Pane　
+                //     elevation={0}
+                //     height={40}
+                //     width={200}
+                //     display="flex"
+                //     alignItems="center"
+                //     justifyContent="center"
+                //     border="none">
+                //         <span>
+                //         <img src={c.image} className="detail" width="20%" height="auto" style={{ objectFit: "cover" }}/>
+                        
+                //         <Text size={300}>&nbsp;&nbsp;{c.name}</Text>
+                //     </span>
+                // </Pane>
+
+                <Pane
+                // elevation={0}
+                float="left"
+                backgroundColor="white"
+                width={70}
+                height={60}
+                margin={5}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                flexDirection="column"
+                >
+                <Text><img src={c.image} className="detail" width="40%" height="auto" style={{ objectFit: "cover" }}/></Text>
+                <Text size={300}>{c.name}</Text>
+                </Pane>
+                // <Pane
+                // elevation={1}
+                // float="left"
+                // width={200}
+                // height={120}
+                // margin={24}
+                // display="flex"
+                // justifyContent="center"
+                // alignItems="center"
+                // flexDirection="column"
+                // >
+                // <Text>Elevation 1</Text>
+                // <Text size={300}>Floating Panes</Text>
+                // </Pane>
+                    
+              );
+        });
         // const numbers = [4, 2, 3, 4, 5];
         const numbers = [{"id":4, "name":"あい"}, {"id":2, "name":"two"}];
         // console.log( typeof numbers )
-        console.log( numbers )
+        // console.log( numbers )
 
-        const listItems = numbers.map((number) =>
-            console.log(number)        
-            );
+        // const listItems = numbers.map((number) =>
+        //     console.log(number)        
+        //     );
         
 
         // for (i in this.props.property_detail.sharableItems){
@@ -158,21 +226,29 @@ export class Detail extends Component {
                 <p style={{ textAlign: "left" }}>
                 最寄駅：{this.props.property_detail.station}駅　徒歩{this.props.property_detail.time_to_station}分
                 </p> */}
-                <Heading size={600} marginTop="default" style={{ textAlign: "left" }}>アメニティ</Heading>
-                <Paragraph  size={500} marginTop="default" style={{ textAlign: "left" }}>
-                {/* {this.props.property_detail.sharableItems}  */}
+                <Heading size={600} marginTop="default" marginBottom={18} style={{ textAlign: "left" }}>アメニティ</Heading>
+
+
+                <Pane clearfix>
+                {amenities}
+                </Pane>
+
+
+
+                {/* <Paragraph  size={500} marginTop="default" style={{ textAlign: "left" }}>
+                {this.props.property_detail.sharableItems} 
 
                 <img src={message} className="detail" width="10%" height="10%"/>
 
-                </Paragraph>
+                </Paragraph> */}
 
-                <Paragraph  size={500} marginTop="default" style={{ textAlign: "left" }}>
+                {/* <Paragraph  size={500} marginTop="default" style={{ textAlign: "left" }}>
                 <img src={message} className="detail" width="10%" height="10%"/>
                 <Text>テスト</Text>
-                </Paragraph>
+                </Paragraph> */}
 
 
-                <Pane　height={30}
+                {/* <Pane　height={30}
                     width={240}
                     display="flex"
                     alignItems="center"
@@ -181,11 +257,11 @@ export class Detail extends Component {
                 <Paragraph  size={500} marginTop="default" style={{ textAlign: "left" }}>
                 <img src={message} className="detail" width="30%" height="30%"/>
                 </Paragraph>                
-                </Pane>
+                </Pane> */}
 
+                {/* <p>{amenities}</p>
                 <p>{test}</p>
-                <p>{test}</p>
-                <p>{test}</p>
+                <p>{test}</p> */}
                 </div>
 
                 {/* <div className="col-md-4">
@@ -274,7 +350,8 @@ export class Detail extends Component {
 }
 
 const mapStateToProps = state => ({
-    property_detail: state.property.property_detail   //reducer index
+    property_detail: state.property.property_detail,   //reducer index
+    sharable_items: state.property.sharable_items   //reducer index
 })
 
 // const mapDispatchToProps = dispatch => {

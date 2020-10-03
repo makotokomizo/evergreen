@@ -4,6 +4,7 @@ import { GET_LEADS, GET_LEAD, DELETE_LEAD, ADD_LEAD, CLEAR_LEADS } from '../acti
 const initialState = {
   property: [],
   property_detail: [],
+  sharable_items: [],
 };
 
 export default function (state = initialState, action) {
@@ -17,6 +18,7 @@ export default function (state = initialState, action) {
         return {
             ...state,
             property_detail: action.payload,
+            sharable_items: action.payload.sharableItems,
         };
     // case DELETE_LEAD:
     //   return {

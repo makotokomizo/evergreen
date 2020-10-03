@@ -10,6 +10,7 @@ export const getProperty = () => (dispatch, getState) => {
   .get('http://127.0.0.1:8000/property/api/list')
 //   .get('/api/list/', tokenConfig(getState))
   .then((res) => {
+    console.log("action getProperty res.data", res.data)
       dispatch({
         type: GET_LEADS,
         payload: res.data,
@@ -25,6 +26,8 @@ export const get1Property = (num) => (dispatch, getState) => {
     .get(`http://127.0.0.1:8000/property/api/list/${num}`)
   //   .get('/api/list/', tokenConfig(getState))
     .then((res) => {
+      console.log("action get1Property res.data", typeof res.data.sharableItems)
+
         dispatch({
           type: GET_LEAD,
           payload: res.data,

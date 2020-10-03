@@ -7,7 +7,7 @@ import auth from './auth';
 
 export default combineReducers({
   property,
-  property_detail,
+  // property_detail,
 //   errors,
 //   messages,
   auth,
