@@ -22,7 +22,7 @@ export default class Home extends Component {
                         <Heading size={400} marginTop="default">Flexible Leasing and Easy Process</Heading>
                         <Pane height={30}></Pane>
                         {/* <Link href="/list" color="neutral" style={{textDecoration: 'none'}}> */}
-                        <NavLink to={`/list`} style={{textDecoration: 'none'}}>
+                        <NavLink to={`/listuse`} style={{textDecoration: 'none'}}>
 
                         <Pane>
                             <Pane
@@ -66,7 +66,7 @@ export default class Home extends Component {
                 </div>
                 </Pane>
 
-                <Pane background="tint1" display="" paddingTop={50} borderRadius={0}>
+                {/* <Pane background="tint1" display="" paddingTop={50} borderRadius={0}>
                 <div className="container">
 
                     <Pane marginTop={0}>
@@ -77,7 +77,7 @@ export default class Home extends Component {
                     
                     </Pane> 
                 </div>
-                </Pane>
+                </Pane> */}
                 <Pane background="tint1" display="" paddingTop={50} borderRadius={0}>
                     <Pane marginTop={0}>
                     
@@ -88,8 +88,8 @@ export default class Home extends Component {
                     <Heading size={800} marginTop="default">3ステップで、よりよい暮らしへ</Heading>
                     <Pane height={30}></Pane>
                     <div className="row">
-                        <div className="col-md-4">
-                        <Pane
+                        <div className="col-md-4" style={{textAlign:'left'}}>
+                        {/* <Pane
                             // clearfix
                             // elevation={0}
                             // float="left"
@@ -99,15 +99,15 @@ export default class Home extends Component {
                             alignItems="center"
                             border="none"
                             style={{textAlign: "left"}}
-                        >
+                        > */}
                             <Heading size={800} marginTop="" >1.</Heading>
                             <Heading size={400} marginTop="default">お気に入りの家をみつける</Heading>
                             <Paragraph>掲載物件を見てみよう</Paragraph>
-                        </Pane>
+                        {/* </Pane> */}
                         </div>
 
-                        <div className="col-md-4">
-                        <Pane
+                        <div className="col-md-4" style={{textAlign:'left'}}>
+                        {/* <Pane
                             // clearfix
                             // elevation={0}
                             // float="left"
@@ -117,14 +117,14 @@ export default class Home extends Component {
                             alignItems="center"
                             border="none"
                             style={{textAlign: "left"}}
-                        >
+                        > */}
                             <Heading size={800} marginTop="" >2.</Heading>
                             <Heading size={400} marginTop="default">ホストと繋がる</Heading>
                             <Paragraph>入居日やハウスルールについて、ホストと話しあおう。</Paragraph>
-                        </Pane>
+                        {/* </Pane> */}
                         </div>
-                        <div className="col-md-4">
-                        <Pane
+                        <div className="col-md-4" style={{textAlign:'left'}}>
+                        {/* <Pane
                             // clearfix
                             // elevation={0}
                             // float="left"
@@ -134,14 +134,15 @@ export default class Home extends Component {
                             alignItems="center"
                             border="none"
                             style={{textAlign: "left"}}
-                        >
+                        > */}
                             <Heading size={800} marginTop="" >3.</Heading>
                             <Heading size={400} marginTop="default">入居を確定する。</Heading>
                             <Paragraph>初月の料金をShareRoで支払ったら、入居日が決定。</Paragraph>
-                        </Pane>
+                        {/* </Pane> */}
                         </div>
                     </div>
                     <Pane height={30}></Pane>
+                    
 
                     </div>
 
@@ -175,7 +176,7 @@ export default class Home extends Component {
                     </div>
                 )}
                 </Component2> */}
-                <Component2 initialState={{ isShown: false }}>
+                {/* <Component2 initialState={{ isShown: false }}>
                 {({ state, setState }) => (
                     <React.Fragment>
                     <SideSheet
@@ -189,7 +190,7 @@ export default class Home extends Component {
                     </Button>
                     </React.Fragment>
                 )}
-                </Component2>
+                </Component2> */}
             </Pane>
         )
     }

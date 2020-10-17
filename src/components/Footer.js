@@ -10,7 +10,9 @@ export class Footer extends Component {
         
         return (
                 <footer>
-                <Pane background="orangeTint" display="flex" padding={16} borderRadius={0}>
+                <Pane background="orangeTint" display="flex" padding={16} borderRadius={0} justifyContent="center"
+                        alignItems="center"
+                        >
                     {/* <Pane flex={1} alignItems="center" display="flex">
                         <Link0 to="/">
                         <Heading size={600}>
@@ -30,7 +32,7 @@ export class Footer extends Component {
                         <img src={logo} className="png" width="20" height="autos" />
                         &nbsp; ShareRo</span></Heading></Link0>
                     </Pane> */}
-                    <Pane
+                    {/* <Pane
                         clearfix
                         // elevation={0}
                         float="left"
@@ -45,6 +47,25 @@ export class Footer extends Component {
                         border="none"
                     >
                         <Text>ShareRo</Text>
+                    </Pane> */}
+
+                    <Pane
+                        clearfix
+                        // elevation={0}
+                        float="left"
+                        // backgroundColor="white"
+                        width={200}
+                        height={100}
+                        margin={24}
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        flexDirection="column"
+                        border="none"
+                    >
+                        <Link href="https://www.facebook.com/sharero.co" target="_blank" rel="noopener" color="neutral" style={{textDecoration: 'none'}}>
+                        <Text>Facebook</Text>
+                        </Link>
                         {/* <Text size={300}>Flat Panes</Text> */}
                     </Pane>
 
@@ -62,8 +83,9 @@ export class Footer extends Component {
                         flexDirection="column"
                         border="none"
                     >
-                        <Text>Media</Text>
-                        {/* <Text size={300}>Flat Panes</Text> */}
+                        <Link href="https://www.instagram.com/sharero.co/" target="_blank" rel="noopener" color="neutral" style={{textDecoration: 'none'}}>
+                        <Text>Instagram</Text>
+                        </Link>
                     </Pane>
 
                     <Pane
@@ -78,27 +100,10 @@ export class Footer extends Component {
                         justifyContent="center"
                         alignItems="center"
                         flexDirection="column"
-                        border="none"
                     >
-                        <Text>Contact us</Text>
-                        {/* <Text size={300}>Flat Panes</Text> */}
-                    </Pane>
-
-                    <Pane
-                        clearfix
-                        elevation={0}
-                        float="left"
-                        // backgroundColor="white"
-                        width={200}
-                        height={100}
-                        margin={24}
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                        flexDirection="column"
-                    >
-                        <Text>Legal</Text>
-                        {/* <Text size={300}>Flat Panes</Text> */}
+                        <Link href="https://note.com/sharero" target="_blank" rel="noopener" color="neutral" style={{textDecoration: 'none'}}>
+                        <Text>Blog</Text>
+                        </Link>
                     </Pane>
 
                 </Pane>
@@ -110,7 +115,7 @@ export class Footer extends Component {
                         float="right"
                         // backgroundColor="white"
                         width={200}
-                        height={100}
+                        height={50}
                         margin={24}
                         display="flex"
                         justifyContent="center"
@@ -118,9 +123,9 @@ export class Footer extends Component {
                         flexDirection="column"
                         // border="none"
                     >
-                        <Text>〒220-0012</Text>
+                        {/* <Text>〒220-0012</Text>
                         <Text size={300}>横浜市西区みなとみらい 3-7-1-8F</Text>
-                        <Text size={300}>TEL: 07021787646</Text>
+                        <Text size={300}>TEL: 07021787646</Text> */}
                         <Text size={300}>Email: info.sharero@gmail.com</Text>
                         <Text size={300}>&copy; 2020 ShareRo</Text>
 
