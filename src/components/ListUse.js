@@ -21,8 +21,6 @@ const ListUse = () => {
         const fetchPosts = async () => {
           setLoading(true);
           const res = await axios.get('https://sharero.co/property/api/list/');
-        //   this.props.getProperty();
-        //   setPosts(this.props);
           setPosts(res.data);
           setLoading(false);
         };
@@ -49,10 +47,4 @@ const ListUse = () => {
       );
     
 }
-
-// const mapStateToProps = state => ({
-//     property: state.property.property   //reducer index
-// })
-
-// export default connect(mapStateToProps, { getProperty })(ListUse);
 export default ListUse;

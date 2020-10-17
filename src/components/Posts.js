@@ -1,32 +1,22 @@
 import React from 'react';
 import { Button, Pane, Heading, Text, Icon, InfoSignIcon, Popover, Position, Menu, Card, toaster, Dialog, Paragraph, Strong } from 'evergreen-ui'
 import { Link, NavLink } from "react-router-dom";
-// import { css } from "@emotion/core";
-// import ClipLoader from "react-spinners/ClipLoader";
-// import BounceLoader from "react-spinners/BounceLoader";
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 const Posts = ({ posts, loading }) => {
   if (loading) {
-    return <h2>Loading...</h2>;
-    // return (<div className="sweet-loading">
-    //     <ClipLoader
-    //     //   css={override}
-    //       size={150}
-    //       color={"rgb(54, 215, 183)"}
-    //       loading={loading}
-    //     />
-    //   </div>);
+    return (<div className="sweet-loading">
+        <ClipLoader
+          size={150}
+          color={"rgb(54, 215, 183)"}
+          loading={loading}
+        />
+      </div>);
   }
 
   return (
-    // <ul className='list-group mb-4'>
-    //     {posts.map(post => (
-    //   <li key={post.id} className='list-group-item'>
-    //       {post.title}
-    //     </li>
-    //     ))}
-    // </ul>
+
     <div className="row">
         {posts.map(post => (
             <div className="col-md-6">
@@ -42,7 +32,6 @@ const Posts = ({ posts, loading }) => {
                 margin={24}
                 display="flex"
                 justifyContent="center"
-                // alignItems="center"
                 flexDirection="column"
                 key={post.id}
                 >
@@ -67,64 +56,6 @@ const Posts = ({ posts, loading }) => {
             </div>
         ))}
     </div>
-
-    // <div className="container">
-    //   {posts.map(post => (
-    //     <NavLink key={post.id} to={`/detail/${post.id}`}>
-    //         <Card
-    //         elevation={1}
-    //         hoverElevation={4}
-    //         activeElevation={4}
-    //         float="left"
-    //         backgroundColor="white"
-    //         width={350}
-    //         height={250}
-    //         margin={24}
-    //         display="flex"
-    //         justifyContent="center"
-    //         // alignItems="center"
-    //         flexDirection="column"
-    //         key={post.id}
-    //     >
-    //         </Card>
-        
-    //     </NavLink>
-    //   ))}
-    // </div>
-    // <NavLink key={posts.id} to={`/detail/${posts.id}`}>
-    //     <Card
-    //         elevation={0}
-    //         hoverElevation={4}
-    //         activeElevation={4}
-    //         float="left"
-    //         backgroundColor="white"
-    //         width={350}
-    //         height={250}
-    //         margin={24}
-    //         display="flex"
-    //         justifyContent="center"
-    //         // alignItems="center"
-    //         flexDirection="column"
-    //         key={posts.id}
-    //     >
-    //     <span>
-    //     <img src={posts.room_image1} className="detail" width="300" height="130" style={{ objectFit: "cover" }}/>
-        
-    //     </span>
-    //     <Pane marginLeft={20} justifyContent="left" flexDirection="column">
-    //         <Paragraph  size={500} marginTop={0} marginLeft={10} style={{ textAlign: "left" }}>
-    //         <Strong>{posts.state} {posts.city}</Strong>
-    //         </Paragraph>
-    //         <Paragraph  size={500} marginTop={0} marginLeft={10} style={{ textAlign: "left" }}>
-    //         <Strong>{posts.station}駅　徒歩{posts.time_to_station1}分</Strong>
-    //         </Paragraph>
-
-    //         <Paragraph  size={350} marginTop={5} marginLeft={10} style={{ textAlign: "left" }}>
-    //         月{posts.price}円
-    //         </Paragraph>
-    //     </Pane>
-    //     </Card>
-    // </NavLink>
 
   );
 };
