@@ -22,7 +22,7 @@ export default class Home extends Component {
                         <Heading size={400} marginTop="default">Flexible Leasing and Easy Process</Heading>
                         <Pane height={30}></Pane>
                         {/* <Link href="/list" color="neutral" style={{textDecoration: 'none'}}> */}
-                        <NavLink to={`/list`} style={{textDecoration: 'none'}}>
+                        <NavLink to={`/listuse`} style={{textDecoration: 'none'}}>
 
                         <Pane>
                             <Pane
