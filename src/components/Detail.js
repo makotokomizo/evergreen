@@ -61,28 +61,6 @@ export class Detail extends Component {
         
         let amenities = sharableItems_data.map((c) => {
             return (
-                // <Contact
-                //   key={c.id}
-                //   name={firstName}
-                //   picURL={Image}
-                //   chatURL={`/build/${c.id}`}
-                // />
-
-                // <Pane　
-                //     elevation={0}
-                //     height={40}
-                //     width={200}
-                //     display="flex"
-                //     alignItems="center"
-                //     justifyContent="center"
-                //     border="none">
-                //         <span>
-                //         <img src={c.image} className="detail" width="20%" height="auto" style={{ objectFit: "cover" }}/>
-                        
-                //         <Text size={300}>&nbsp;&nbsp;{c.name}</Text>
-                //     </span>
-                // </Pane>
-
                 <Pane
                 // elevation={0}
                 float="left"
@@ -98,20 +76,6 @@ export class Detail extends Component {
                 <Text><img src={c.image} className="detail" width="40%" height="auto" style={{ objectFit: "cover" }}/></Text>
                 <Text size={300}>{c.name}</Text>
                 </Pane>
-                // <Pane
-                // elevation={1}
-                // float="left"
-                // width={200}
-                // height={120}
-                // margin={24}
-                // display="flex"
-                // justifyContent="center"
-                // alignItems="center"
-                // flexDirection="column"
-                // >
-                // <Text>Elevation 1</Text>
-                // <Text size={300}>Floating Panes</Text>
-                // </Pane>
                     
               );
         });
