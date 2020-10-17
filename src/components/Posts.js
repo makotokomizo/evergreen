@@ -1,22 +1,22 @@
 import React from 'react';
 import { Button, Pane, Heading, Text, Icon, InfoSignIcon, Popover, Position, Menu, Card, toaster, Dialog, Paragraph, Strong } from 'evergreen-ui'
 import { Link, NavLink } from "react-router-dom";
-import { css } from "@emotion/core";
-import ClipLoader from "react-spinners/ClipLoader";
-import BounceLoader from "react-spinners/BounceLoader";
+// import { css } from "@emotion/core";
+// import ClipLoader from "react-spinners/ClipLoader";
+// import BounceLoader from "react-spinners/BounceLoader";
 
 
 const Posts = ({ posts, loading }) => {
   if (loading) {
-    // return <h2>Loading...</h2>;
-    return (<div className="sweet-loading">
-        <ClipLoader
-        //   css={override}
-          size={150}
-          color={"rgb(54, 215, 183)"}
-          loading={loading}
-        />
-      </div>);
+    return <h2>Loading...</h2>;
+    // return (<div className="sweet-loading">
+    //     <ClipLoader
+    //     //   css={override}
+    //       size={150}
+    //       color={"rgb(54, 215, 183)"}
+    //       loading={loading}
+    //     />
+    //   </div>);
   }
 
   return (
