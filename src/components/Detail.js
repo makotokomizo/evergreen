@@ -49,7 +49,6 @@ export class Detail extends Component {
         //     console.log(item)
         //   })
 
-        console.log( sharableItems_data )
         // console.log( this.state )
         // console.log( sharableItems_data_json )
         // const list = sharableItems_data.map(obj => obj.name);
@@ -61,10 +60,6 @@ export class Detail extends Component {
         // --------------------------------------------------↓this part I mentioned
         
         let amenities = sharableItems_data.map((c) => {
-            console.log("map", c)
-            console.log("map", c.name)
-
-
             return (
                 // <Contact
                 //   key={c.id}
@@ -163,19 +158,21 @@ export class Detail extends Component {
 
 
         return (
-            
-            <div className="">
+            <div className="container">
                 <Pane>
-                <img src={this.props.property_detail.image} className="detail" width="100%" height="80%" style={{ objectFit: "cover" }}/>
+                <img src={this.props.property_detail.room_image1} className="detail" width="100%" height="80%" style={{ objectFit: "cover" }}/>
                 </Pane>
                 <div className="row">
 
-                <div className="col-md-8" style={{ marginTop: "8vh" }}>
-                {/* <Paragraph  size={300} marginTop="default" style={{ textAlign: "left" }}></Paragraph> */}
-                <Heading size={600} marginTop="default" style={{ textAlign: "left" }}>利用可能期間</Heading>
+                <div className="col-md-12" style={{ marginTop: "8vh" }}>
+                {/* <Heading size={600} marginTop="default" style={{ textAlign: "left" }}>利用可能期間</Heading>
                 <Paragraph size={500} marginTop="default" style={{ textAlign: "left" }}>
                 　　{this.props.property_detail.date_available} から
-                </Paragraph>
+                </Paragraph> */}
+                <Heading size={600} marginTop="default" style={{ textAlign: "left" }}>{this.props.property_detail.title}</Heading>
+                {/* <Paragraph size={500} marginTop="default" style={{ textAlign: "left" }}>
+                　　{this.props.property_detail.title}
+                </Paragraph> */}
                 <Pane　height={30}
                     width={240}
                     display="flex"
@@ -209,7 +206,7 @@ export class Detail extends Component {
                 　　{this.props.property_detail.state} {this.props.property_detail.city}
                 </Paragraph>
                 <Paragraph  size={500} marginTop="default" style={{ textAlign: "left" }}>
-                　　最寄駅：{this.props.property_detail.station}駅　徒歩{this.props.property_detail.time_to_station}分
+                　　最寄駅：{this.props.property_detail.station}　徒歩{this.props.property_detail.time_to_station1}分
                 </Paragraph>
                 <Pane　height={30}
                     width={240}
@@ -283,7 +280,7 @@ export class Detail extends Component {
                 <p>{test}</p>
                 </div> */}
 
-                <div className="col-md-4" style={{ marginTop: "4vh", marginBottom: "4vh" }}>
+                {/* <div className="col-md-4" style={{ marginTop: "4vh", marginBottom: "4vh" }}>
 
                 <Pane clearfix>
                 <Pane
@@ -336,13 +333,9 @@ export class Detail extends Component {
                 </Pane>
                 <Heading size={400} marginTop="default" style={{ }}>{this.props.property_detail.firstName}にコンタクトを取る</Heading>
 
-
-
-                    {/* <Text>Elevation 4</Text>
-                    <Text size={300}>Dialog</Text> */}
                 </Pane>
                 </Pane>
-                </div>
+                </div> */}
                 </div>
             </div>
         )

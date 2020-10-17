@@ -23,10 +23,12 @@ export const getProperty = () => (dispatch, getState) => {
 // GET LEAD
 export const get1Property = (num) => (dispatch, getState) => {
     axios
-    .get(`http://127.0.0.1:8000/property/api/list/${num}`)
+    // .get(`http://127.0.0.1:8000/property/api/list/${num}`)
+    .get(`https://sharero.co/property/api/list/${num}`)
   //   .get('/api/list/', tokenConfig(getState))
     .then((res) => {
       console.log("action get1Property res.data", typeof res.data.sharableItems)
+      console.log("action get1Property res.data", res.data.sharableItems)
 
         dispatch({
           type: GET_LEAD,

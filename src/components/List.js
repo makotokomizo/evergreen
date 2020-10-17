@@ -6,12 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getProperty } from '../actions/property';
 // import Image from 'react-bootstrap/Image'
-
-// import {Component as Reaction} from "@reactions/component";
-
-
-// const Reaction = require("@reactions/component");
-
+import ProgressiveImage from "react-progressive-image-loading";
 
 export class List extends Component {
     static propTypes = {
@@ -29,8 +24,7 @@ export class List extends Component {
 
 
         let activeDetails = this.props.property.map(c => {
-                // console.log(c.public);
-                if (c.public) {
+                if (true) {
                         return (
                             // <NavLink to="/detail">
                             <NavLink key={c.id} to={`/detail/${c.id}`}>
@@ -51,24 +45,27 @@ export class List extends Component {
                             key={c.id}
                         >
                         <span>
-                        <img src={c.image} className="detail" width="300" height="130" style={{ objectFit: "cover" }}/>
+                        <img src={c.room_image1} className="detail" width="300" height="130" style={{ objectFit: "cover" }}/>
+                        {/* <ProgressiveImage src={c.room_image1} placeholder="tiny-image.jpg">
+                        {src => <img src={src} alt="an image" />}
+                        </ProgressiveImage> */}
+                        {/* <ProgressiveImage
+                            // preview="/images/tiny-preview.png"
+                            width="300" height="130" 
+                            src={c.room_image1}
+                            render={(src, style) => <img src={src} style={style} />}
+                        /> */}
                         </span>
-                        {/* <img src={c.image} className="png" style="width: 100%; object-fit: cover;" /> */}
-                        {/* <Paragraph>{c.state}</Paragraph> */}
-                        {/* <Heading size={600} marginTop={5} marginLeft={10} style={{ textAlign: "left" }}>{c.state} {c.city}</Heading> */}
-                        {/* <Text size={300}>{c.firstName} {c.age}歳 {c.gender}</Text> */}
                         <Pane marginLeft={20} justifyContent="left" flexDirection="column">
-                            <Paragraph  size={300} marginTop={5} marginLeft={10} style={{ textAlign: "left" }}>
+                            {/* <Paragraph  size={300} marginTop={5} marginLeft={10} style={{ textAlign: "left" }}>
                             {c.firstName} {c.age}歳 {c.gender}
-                            </Paragraph>
-                            {/* <Paragraph  size={500} marginTop={1} style={{ textAlign: "left" }}> */}
+                            </Paragraph> */}
                             <Paragraph  size={500} marginTop={0} marginLeft={10} style={{ textAlign: "left" }}>
                             <Strong>{c.state} {c.city}</Strong>
                             </Paragraph>
                             <Paragraph  size={500} marginTop={0} marginLeft={10} style={{ textAlign: "left" }}>
-                            <Strong>{c.station}駅　徒歩{c.time_to_station}分</Strong>
+                            <Strong>{c.station}駅　徒歩{c.time_to_station1}分</Strong>
                             </Paragraph>
-                            {/* <Strong>{c.station}駅　徒歩{c.time_to_station}分</Strong> */}
 
                             <Paragraph  size={350} marginTop={5} marginLeft={10} style={{ textAlign: "left" }}>
                             月{c.price}円
@@ -120,8 +117,8 @@ export class List extends Component {
 
         return (
             <div>
-                <p><InfoSignIcon color="info" marginRight={16} />
-                list</p>
+                {/* <p><InfoSignIcon color="info" marginRight={16} />
+                list</p> */}
 
                 <Fragment>
                 <div id="list-container" className="container">

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reach/component-component": "^0.11.1",
     "@reactions/component": "^2.0.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -11,12 +12,15 @@
     "evergreen-ui": "^4.27.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-progressive-image": "^0.6.0",
+    "react-progressive-image-loading": "^3.0.3",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "vue-progressive-image": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -6,8 +6,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { Route, Switch } from "react-router-dom";
 import MyNav from './components/MyNav'
+import Home from './components/Home';
+
 import Footer from './components/Footer'
 import List from './components/List'
+import ListUse from './components/ListUse'
+
 import Detail from './components/Detail'
 import SubmitHost from './components/SubmitHost'
 
@@ -69,15 +73,18 @@ class App extends React.Component {
        <Router>
          <Fragment>
            <MyNav />
-            <div className="container">
+            {/* <div> */}
                <Switch>
-               <Route exact path="/" component={Dashboard} />
+               <Route exact path="/" component={Home} />
+               <Route exact path="/dashboard" component={Dashboard} />
                <Route exact path="/login" component={Login} />
                <Route exact path="/list" component={List} />
+               <Route exact path="/listuse" component={ListUse} />
+
                <Route exact path="/detail/:detailID/" component={Detail} />
                <Route exact path="/host_submit/" component={SubmitHost} />
                </Switch>
-             </div>
+             {/* </div> */}
              <Footer />
          </Fragment>
        </Router>
